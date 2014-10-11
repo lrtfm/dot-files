@@ -57,3 +57,7 @@ nnoremap <C-C>f :call Send_to_Tmux("(load \"". @% . "\")\n")<CR>
 " http://www.vim.org/scripts/script.php?script_id=3998
 " https://bitbucket.org/kovisoft/paredit
 " for lisp
+
+" org-mode
+" http://www.vim.org/scripts/script.php?script_id=3642
+" https://github.com/jceb/vim-orgmode

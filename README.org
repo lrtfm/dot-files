@@ -1,0 +1,17 @@
+#+TITLE: 配置文件说明
+#+OPTIONS: toc:2 
+
+* 配置文件
+
+** 文件列表
+   该仓库内文件列表如下：
+   - vimrc
+   - tmux.conf
+   - bash_profile
+
+** 相关说明
+   该仓库内文件说明
+   1. vimrc vim配置文件, 全名称：~/.vimrc
+   2. tmux.conf tmux配置文件， 全名称：~/.tmux.conf
+   1. bash_profile 对bash的配置和一些简写命令
+  

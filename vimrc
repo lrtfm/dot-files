@@ -61,3 +61,7 @@ nnoremap <C-C>f :call Send_to_Tmux("(load \"". @% . "\")\n")<CR>
 " org-mode
 " http://www.vim.org/scripts/script.php?script_id=3642
 " https://github.com/jceb/vim-orgmode
+
+" speeddating
+" http://www.vim.org/scripts/script.php?script_id=2120
+" https://github.com/tpope/vim-speeddating

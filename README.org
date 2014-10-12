@@ -8,7 +8,6 @@
    - vimrc
    - tmux.conf
    - bash_profile
-
 ** 相关说明
    该仓库内文件说明
    1. vimrc vim配置文件, 全名称：~/.vimrc

@@ -65,3 +65,6 @@ nnoremap <C-C>f :call Send_to_Tmux("(load \"". @% . "\")\n")<CR>
 " speeddating
 " http://www.vim.org/scripts/script.php?script_id=2120
 " https://github.com/tpope/vim-speeddating
+
+" vim-niji
+" https://github.com/amdt/vim-niji

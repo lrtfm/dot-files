@@ -51,7 +51,7 @@ nmap <F4> :NERDTreeToggle<CR>
 " http://www.vim.org/scripts/script.php?script_id=3023
 " https://github.com/sjl/tslime.vim 
 " 加载正在编辑的文件
-nnoremap <C-C>f :call Send_to_Tmux("(load \"". @% . "\")\n")<CR>
+nnoremap <C-C>f :call Send_to_Tmux("(load \"". getcwd() . "/" . @% . "\")\n")<CR>
 
 " paredit.vim  
 " http://www.vim.org/scripts/script.php?script_id=3998

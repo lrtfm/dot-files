@@ -15,6 +15,7 @@ set softtabstop=4
 set laststatus=2    " 启动显示状态行(1),总是显示状态行(2)  
 set completeopt-=preview
 set nocp
+set fileencodings=ucs-bom,utf-8,gbk,default,latin1
 "set cindent
 "set mouse=a
 

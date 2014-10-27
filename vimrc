@@ -15,6 +15,9 @@ set softtabstop=4
 set laststatus=2    " 启动显示状态行(1),总是显示状态行(2)  
 set completeopt-=preview
 set nocp
+set hlsearch
+"hi Search term=standout ctermfg=0 ctermbg=3
+hi Search ctermfg=0 ctermbg=7 guibg=Grey
 "set cindent
 "set mouse=a
 

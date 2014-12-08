@@ -72,10 +72,3 @@ nnoremap <C-C>f :call Send_to_Tmux("(load \"". getcwd() . "/" . @% . "\")\n")<CR
 
 " vim-niji
 " https://github.com/amdt/vim-niji
-"
-"
-
-" fortran.vim
-" http://www.vim.org/scripts/script.php?script_id=2299
-" 需要转换成unix格式
-

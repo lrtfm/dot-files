@@ -50,6 +50,10 @@ nmap <F2> :!pctags<CR>
 nmap <F3> :TlistToggle<CR>
 nmap <F4> :NERDTreeToggle<CR>
 
+nnoremap <C-n> :cn<CR>
+nnoremap <C-p> :cp<CR>
+nnoremap <C-\><C-]> :GtagsCursor<CR>
+
 " 使用 tmux + tslime.vim + guile 编写 scheme 代码
 " tslime:   
 " http://www.vim.org/scripts/script.php?script_id=3023

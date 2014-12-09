@@ -83,3 +83,8 @@ nnoremap <C-C>f :call Send_to_Tmux("(load \"". getcwd() . "/" . @% . "\")\n")<CR
 " http://www.vim.org/scripts/script.php?script_id=2299
 " 需要转换成unix格式
 
+let mapleader = ","
+" for c/c++ file
+nnoremap <leader>c i/*<CR><C-R>%<CR><CR><C-R>=strftime("%F %X")<CR><CR><CR>YangZongze yangzongze@gmail.com<CR>/<CR><CR><ESC> 
+nnoremap <leader>d i#ifndef <C-R>%<ESC>F vEUf.r_A__<CR>#define <C-R>%<ESC>F vEUf.r_A__<CR><CR>#endif<ESC>k
+nmap <leader>h ,c<ESC>,d

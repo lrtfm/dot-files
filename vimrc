@@ -5,6 +5,12 @@ execute pathogen#infect()
 
 syntax on
 highlight Comment ctermfg=6
+if has("win32")
+    set guifont=Consolas:h12:cANSI
+    colors desert 
+endif
+
+set textwidth=80
 set nu
 set ruler
 set showcmd
@@ -26,30 +32,37 @@ set fileencodings=ucs-bom,utf-8,cp936,gb18030,default,latin1
 
 filetype plugin indent on
 
-" for latex-suit
 set shellslash
 set grepprg=grep\ -nH\ $*
+set winaltkeys=no
 let g:tex_flavor='latex'
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_MultipleCompileFormats = 'pdf'
-let g:Tex_FormatDependency_pdf = 'dvi,ps,pdf'
-let g:Tex_CompileRule_dvi = 'latex --interaction=nonstopmode $*'
-let g:Tex_CompileRule_ps = 'dvips -Ppdf -o $*.ps $*.dvi'
-let g:Tex_CompileRule_pdf = 'ps2pdf $*.ps'
-function CompileXeTex()
-    let oldCompileRule=g:Tex_CompileRule_pdf
-    let oldFormatDependency=g:Tex_FormatDependency_pdf
-    let g:tex_flavor='xelatex'
-    let g:Tex_FormatDependency_pdf = 'pdf'
-    "let g:Tex_MultipleCompileFormats = 'pdf'
-    let g:Tex_CompileRule_pdf = 'xelatex --interaction=nonstopmode $*'
-    call Tex_RunLaTeX()
-    let g:tex_flavor='latex'
-    let g:Tex_CompileRule_pdf=oldCompileRule
-    let g:Tex_FormatDependency_pdf=oldFormatDependency
-endfunction
+"let g:Tex_FormatDependency_pdf = 'dvi,ps,pdf'
+"let g:Tex_CompileRule_dvi = 'latex --interaction=nonstopmode $*'
+"let g:Tex_CompileRule_ps = 'dvips -Ppdf -o $*.ps $*.dvi'
+"let g:Tex_CompileRule_pdf = 'ps2pdf $*.ps'
+let g:Tex_FormatDependency_pdf = 'pdf'
+let g:Tex_CompileRule_pdf = 'xelatex --synctex=-1 --interaction=nonstopmode $*'
+" let g:Tex_ViewRule_pdf = '/cygdrive/c/Program\ Files/SumatraPDF/SumatraPDF.exe'
+ let g:Tex_ViewRule_pdf = 'sumatrapdf -reuse-instance -inverse-search "vim -c \":RemoteOpen +\%l \%f\"" '
+" for latex-suit
+"function CompileXeTex()
+"    let oldCompileRule=g:Tex_CompileRule_pdf
+"    let oldFormatDependency=g:Tex_FormatDependency_pdf
+"    let g:tex_flavor='xelatex'
+"    let g:Tex_FormatDependency_pdf = 'pdf'
+"    "let g:Tex_MultipleCompileFormats = 'pdf'
+"    let g:Tex_CompileRule_pdf = 'xelatex --interaction=nonstopmode $*'
+"    call Tex_RunLaTeX()
+"    let g:tex_flavor='latex'
+"    let g:Tex_CompileRule_pdf=oldCompileRule
+"    let g:Tex_FormatDependency_pdf=oldFormatDependency
+"endfunction
 
 function Mytex()
+    syntax match longline1 "^.\{80,}$"
+    highlight link longline1 Error
     "let g:Imap_UsePlaceHolders = 0
     set sw=2
     set ts=2
@@ -57,13 +70,13 @@ function Mytex()
     set shiftwidth=2
     set softtabstop=2
     set iskeyword+=:
-    inoremap <leader>rl {}_{a}^{}D_{x}^{}<ESC>i
-    map <Leader>lx :w<CR>:<C-U>call CompileXeTex()<CR>
+    inoremap `R {}_{}^{<++>}D_{<++>}^{<++>}<++><ESC>26hi
+    "nnoremap <Leader>le :w<CR>:<C-U>call CompileXeTex()<CR><ESC>
     "nnoremap <leader>xe :w<CR>:!xelatex --interaction=nonstopmode <C-R>%<CR>
-    autocmd FileType tex call Tex_MakeMap("<Leader>ll", ":w <CR> <Plug>Tex_Compile", 'n', '<buffer>')
-    autocmd FileType tex call Tex_MakeMap("<Leader>ll", "<ESC> :w <CR> <Plug>Tex_Compile", 'v', '<buffer>')
-    "autocmd FileType tex call Tex_MakeMap('<leader>ll', ':update!<CR>:call Tex_RunLaTeX()<CR>', 'n', '<buffer>')
-    "autocmd FileType tex call Tex_MakeMap('<leader>ll', '<ESC>:update!<CR>:call Tex_RunLaTeX()<CR>', 'v', '<buffer>')
+    "autocmd FileType tex call Tex_MakeMap("<Leader>ll", ":w <CR> <Plug>Tex_Compile", 'n', '<buffer>')
+    "autocmd FileType tex call Tex_MakeMap("<Leader>ll", "<ESC> :w <CR> <Plug>Tex_Compile", 'v', '<buffer>')
+    "autocmd FileType tex call Tex_MakeMap('<leader>ll', ':update!<CR>:call Tex_RunLaTeX()<CR><ESC>', 'n', '<buffer>')
+    "autocmd FileType tex call Tex_MakeMap('<leader>ll', '<ESC>:update!<CR>:call Tex_RunLaTeX()<CR><ESC>', 'v', '<buffer>')
 endfunction
 
 au BufNewFile,BufRead *.tex call Mytex() 

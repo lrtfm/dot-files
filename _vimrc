@@ -50,6 +50,11 @@ highlight ColorColumn guibg=#292929 ctermbg=235
 " let &colorcolumn="80,".join(range(400,999),",")
 highlight Comment guifg=#7E7E7E ctermfg=244
 " set guicursor=n-v-c:block,o:block,i-ci:block,r-cr:block,sm:block
+highlight Cursor guifg=white guibg=black
+" highlight iCursor guifg=red guibg=yellow
+" let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+" let &t_EI = "\<Esc>]50;CursorShape=1\x7"
+" set guicursor=n-v-c:block,o:block,i-ci:block,r-cr:block,sm:block
 
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,default,latin1
 set nofoldenable
@@ -65,15 +70,14 @@ set shiftwidth=4
 set softtabstop=4
 " set backspace=indent,eol,start"
 
-hi colorcolumn guibg=#151515
-set colorcolumn=80
-
+" set list
 set noerrorbells
 set t_vb=
 set guioptions-=T
 " set guioptions-=r
 " set guioptions-=m
 
+set shortmess=atI
 set mouse=a
 
 let mapleader = ","

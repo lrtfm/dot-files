@@ -1,4 +1,6 @@
 set nocompatible              " be iMproved, required
+let $LANG = 'en'
+set langmenu=en
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -18,6 +20,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'kien/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'majutsushi/tagbar'
@@ -62,6 +65,9 @@ highlight Cursor guibg=white guifg=black
 " let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 " let &t_EI = "\<Esc>]50;CursorShape=1\x7"
 " set guicursor=n-v-c:block,o:block,i-ci:block,r-cr:block,sm:block
+
+" hi Visual term=reverse cterm=reverse guibg=grey guifg=black
+hi Visual term=reverse cterm=reverse guibg=#590959
 
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,default,latin1
 set nofoldenable
@@ -121,4 +127,20 @@ set shellslash
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
 let g:tex_isk='48-57,a-z,A-Z,192-255,:'
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+let g:airline#extensions#tabline#enabled = 1
+" let g:airline_theme='wombat'
+let g:airline_theme='molokai'
+" let g:airline_theme='luna'
+" let g:airline_theme='solarized'
+" let g:airline_powerline_fonts = 1
+
 

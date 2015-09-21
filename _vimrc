@@ -13,15 +13,22 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 " Plugin 'Valloric/YouCompleteMe'
 " Plugin 'Lokaltog/vim-powerline.git'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
-
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'SirVer/ultisnips'
+Plugin 'kien/ctrlp.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'majutsushi/tagbar'
+Plugin 'git://git.code.sf.net/p/vim-latex/vim-latex'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'The-NERD-tree'
-Plugin 'taglist.vim'
+" Plugin 'taglist.vim'
 Plugin 'vim-niji'
-Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
+" Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
 Plugin 'molokai'
-Plugin 'snipMate'
+" Plugin 'snipMate'
 " Plugin 'vim-orgmode'
 " Plugin 'vim-speeddating'
 " Plugin 'vim-paredit'
@@ -50,7 +57,7 @@ highlight ColorColumn guibg=#292929 ctermbg=235
 " let &colorcolumn="80,".join(range(400,999),",")
 highlight Comment guifg=#7E7E7E ctermfg=244
 " set guicursor=n-v-c:block,o:block,i-ci:block,r-cr:block,sm:block
-highlight Cursor guifg=white guibg=black
+highlight Cursor guibg=white guifg=black
 " highlight iCursor guifg=red guibg=yellow
 " let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 " let &t_EI = "\<Esc>]50;CursorShape=1\x7"
@@ -84,6 +91,30 @@ let mapleader = ","
 
 autocmd! BufWritePost $MYVIMRC source % 
 autocmd BufNewFile,BufRead *.edp setf cpp
+
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+" au VimEnter * RainbowParenthesesToggle
+" au Syntax * RainbowParenthesesLoadRound
+" au Syntax * RainbowParenthesesLoadSquare
+" au Syntax * RainbowParenthesesLoadBraces
 
 " for tex
 set shellslash

@@ -20,3 +20,4 @@ let g:Tex_FormatDependency_pdf = 'pdf'
 let g:Tex_CompileRule_pdf = 'pdflatex -synctex=-1  -src-specials -interaction=nonstopmode $*'
 let g:Tex_ViewRule_pdf = 'sumatrapdf -reuse-instance -inverse-search "gvim -c \":RemoteOpen +\%l \%f\"" '
 
+

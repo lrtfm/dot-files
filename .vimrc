@@ -11,7 +11,9 @@ Plugin 'VundleVim/Vundle.vim'
 
 " plugin on GitHub repo
 Plugin 'scrooloose/syntastic'
-Plugin 'Valloric/YouCompleteMe'
+if has("unix")
+    Plugin 'Valloric/YouCompleteMe'
+endif
 " Plugin 'Lokaltog/vim-powerline.git'
 Plugin 'bling/vim-airline'
 
@@ -34,10 +36,13 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 syntax on
+colors molokai
+
 if has("win32")
     au GUIEnter * simalt ~x
     set guifont=Consolas:h13:cANSI
-    colors molokai
+elseif has("unix")
+    set t_Co=256
 endif
 
 set cursorline

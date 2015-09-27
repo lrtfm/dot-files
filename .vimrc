@@ -1,11 +1,10 @@
 set nocompatible              " be iMproved, required
 let $LANG = 'en'
 set langmenu=en
-" let $path="D:/Program\ Files\ (x86)/LLVM/bin;D:/Python27;C:/Windows/system32;C:/Windows;D:/Program\ Files\ (x86)/Vim/vim74"
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/vimfiles/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 " call vundle#begin('~/some/path/here')
@@ -14,6 +13,11 @@ Plugin 'VundleVim/Vundle.vim'
 
 " plugin on GitHub repo
 Plugin 'scrooloose/syntastic'
+if has("unix") && has("win32unix")
+    Plugin 'honza/vim-snippets'
+else
+    Plugin 'SirVer/ultisnips'
+endif
 if has("unix") && !has("win32unix")
     Plugin 'Valloric/YouCompleteMe'
 endif
@@ -22,8 +26,6 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
 Plugin 'kien/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'majutsushi/tagbar'

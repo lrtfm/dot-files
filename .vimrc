@@ -153,7 +153,9 @@ let g:airline_theme='molokai'
 " let g:airline_theme='solarized'
 " let g:airline_powerline_fonts = 1
 
-" let g:ycm_global_ycm_extra_conf = 'C:/Users/YangZongze/vimfiles\bundle\YouCompleteMe\third_party\ycmd\cpp\ycm\.ycm_extra_conf.py'
+if has("unix") && !has("win32unix")
+    let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+endif
 
 " for clang_complete
 " set completeopt=menu,longest
@@ -166,6 +168,7 @@ let g:airline_theme='molokai'
 " let g:clang_close_preview=1
 " let g:clang_use_library=1
 " let g:clang_user_options='-stdlib=libc++ -std=c++11'
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*

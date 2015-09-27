@@ -1,6 +1,7 @@
 set nocompatible              " be iMproved, required
 let $LANG = 'en'
 set langmenu=en
+" let $path="D:/Program\ Files\ (x86)/LLVM/bin;D:/Python27;C:/Windows/system32;C:/Windows;D:/Program\ Files\ (x86)/Vim/vim74"
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -26,6 +27,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'majutsushi/tagbar'
 Plugin 'git://git.code.sf.net/p/vim-latex/vim-latex'
 " plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'Rip-Rip/clang_complete'
 Plugin 'The-NERD-tree'
 " Plugin 'taglist.vim'
 Plugin 'vim-niji'
@@ -45,7 +47,7 @@ filetype plugin indent on    " required
 
 syntax on
 if has("win32")
-    au GUIEnter * simalt ~x
+    " au GUIEnter * simalt ~x
     set guifont=Consolas:h13:cANSI
     colors molokai
 endif
@@ -67,7 +69,7 @@ highlight Cursor guibg=white guifg=black
 " set guicursor=n-v-c:block,o:block,i-ci:block,r-cr:block,sm:block
 
 " hi Visual term=reverse cterm=reverse guibg=grey guifg=black
-hi Visual term=reverse cterm=reverse guibg=#590959
+hi Visual term=reverse ctermbg=black ctermfg=white guibg=#590959
 
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,default,latin1
 set nofoldenable
@@ -81,7 +83,7 @@ set ts=4
 set expandtab
 set shiftwidth=4
 set softtabstop=4
-" set backspace=indent,eol,start"
+set backspace=indent,eol,start"
 
 " set list
 set noerrorbells
@@ -127,6 +129,7 @@ set shellslash
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
 let g:tex_isk='48-57,a-z,A-Z,192-255,:'
+let g:Tex_GotoError=0
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -142,5 +145,27 @@ let g:airline_theme='molokai'
 " let g:airline_theme='luna'
 " let g:airline_theme='solarized'
 " let g:airline_powerline_fonts = 1
+
+" let g:ycm_global_ycm_extra_conf = 'C:/Users/YangZongze/vimfiles\bundle\YouCompleteMe\third_party\ycmd\cpp\ycm\.ycm_extra_conf.py'
+
+" for clang_complete
+" set completeopt=menu,longest
+" let g:clang_auto_select=1
+" let g:clang_complete_auto=1     " automatically complete after -> . ::
+" let g:clang_hl_errors=1         " highlight the warnings and error the same way clang does it
+" let g:clang_complete_copen=0    " open quickfix window on error
+" let g:clang_periodic_quickfix=0 " periodically update the quickfix window
+" let g:clang_snippets=0
+" let g:clang_close_preview=1
+" let g:clang_use_library=1
+" let g:clang_user_options='-stdlib=libc++ -std=c++11'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1 
 
 

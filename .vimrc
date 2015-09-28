@@ -178,4 +178,8 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1 
 
+ if has('win32') || has('win64')
+     set rtp^=~/.vim
+     set rtp+=~/.vim/after
+ endif
 

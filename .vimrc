@@ -4,6 +4,7 @@ set langmenu=en
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
+" set rtp=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
@@ -144,7 +145,8 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsEditSplit="normal"
+let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 
 let g:airline#extensions#tabline#enabled = 1
 " let g:airline_theme='wombat'
@@ -178,8 +180,8 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1 
 
- if has('win32') || has('win64')
-     set rtp^=~/.vim
-     set rtp+=~/.vim/after
- endif
+if has('win32') || has('win64')
+  set rtp^=~/.vim
+  set rtp+=~/.vim/after
+endif
 

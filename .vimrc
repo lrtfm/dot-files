@@ -12,25 +12,18 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
-" plugin on GitHub repo
-Plugin 'scrooloose/syntastic'
-if has("unix") && has("win32unix")
-    Plugin 'honza/vim-snippets'
-else
-    Plugin 'SirVer/ultisnips'
-endif
-if has("unix") && !has("win32unix")
-    Plugin 'Valloric/YouCompleteMe'
-endif
+Plugin 'snipMate'
+Plugin 'honza/vim-snippets'
 " Plugin 'Lokaltog/vim-powerline.git'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'bling/vim-airline'
+" Plugin 'kien/rainbow_parentheses.vim'
+" Plugin 'tpope/vim-surround'
+" Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'kien/ctrlp.vim'
-Plugin 'altercation/vim-colors-solarized'
+" Plugin 'kien/ctrlp.vim'
+" Plugin 'altercation/vim-colors-solarized'
 Plugin 'majutsushi/tagbar'
 Plugin 'git://git.code.sf.net/p/vim-latex/vim-latex'
+" Plugin 'kovisoft/slimv'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'Rip-Rip/clang_complete'
 Plugin 'The-NERD-tree'
@@ -38,11 +31,11 @@ Plugin 'The-NERD-tree'
 Plugin 'vim-niji'
 " Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
 Plugin 'molokai'
-" Plugin 'snipMate'
 " Plugin 'vim-orgmode'
 " Plugin 'vim-speeddating'
 " Plugin 'vim-paredit'
 " Plugin 'tslime'
+" Plugin 'slimv.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -107,6 +100,7 @@ let mapleader = ","
 
 autocmd! BufWritePost $MYVIMRC source % 
 autocmd BufNewFile,BufRead *.edp setf cpp
+autocmd BufNewFile,BufRead *.cls set filetype=tex
 
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
@@ -145,8 +139,8 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="normal"
-let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
+let g:UltiSnipsEditSplit="horizontal"
+let g:UltiSnipsSnippetsDir=expand("$HOME/.vim/UltiSnips")
 
 let g:airline#extensions#tabline#enabled = 1
 " let g:airline_theme='wombat'
@@ -159,26 +153,14 @@ if has("unix") && !has("win32unix")
     let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 endif
 
-" for clang_complete
-" set completeopt=menu,longest
-" let g:clang_auto_select=1
-" let g:clang_complete_auto=1     " automatically complete after -> . ::
-" let g:clang_hl_errors=1         " highlight the warnings and error the same way clang does it
-" let g:clang_complete_copen=0    " open quickfix window on error
-" let g:clang_periodic_quickfix=0 " periodically update the quickfix window
-" let g:clang_snippets=0
-" let g:clang_close_preview=1
-" let g:clang_use_library=1
-" let g:clang_user_options='-stdlib=libc++ -std=c++11'
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1 
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+"
+" let g:syntastic_always_populate_loc_list = 0
+" let g:syntastic_auto_loc_list = 0
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 1
 
 if has('win32') || has('win64')
   set rtp^=~/.vim

@@ -1,0 +1,8 @@
+/*
+!/.gitignore
+!/.vimrc
+!/.vim
+/.vim/*
+!/.vim/.ycm_extra_conf.py
+!/.vim/ftplugin
+!/.vim/snippets

@@ -28,4 +28,5 @@ endfunction
 
 map <leader>lx :call ChangeTexCompiler('xelatex')<CR>
 map <leader>lp :call ChangeTexCompiler('pdflatex')<CR>
+map <leader>lt :!start tex -interaction=nonstopmode <C-R>%<CR>
 

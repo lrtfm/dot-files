@@ -1,0 +1,18 @@
+;; (setq elpy-modules nil)
+(elpy-enable)
+(elpy-use-ipython)
+
+;(when (executable-find "ipython")
+;  (setq python-shell-interpreter "ipython")
+;  (setq python-shell-interpreter-args "-i -wthread"))
+;(setq python-shell-interpreter-args "-i d:/Python27/Scripts/ipython.exe --pylab=inline")
+(setq python-shell-interpreter-args "-i")
+(setq python-shell-completion-native-enable nil)
+(setq python-shell-prompt-detect-failure-warning nil)
+;; (add-hook 'python-mode-hook 'company-mode)
+;; (require-package 'jedi)
+;; (add-hook 'python-mode-hook 'jedi:setup)
+;; (setq jedi:complete-on-dot t)
+;; (setq elpy-rpc-backend "jedi")
+
+(provide 'init-python)

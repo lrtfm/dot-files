@@ -25,8 +25,12 @@
   (mapc #'require-package packages))
 
 (require-package 'better-defaults)
+; (require-package 'powerline)
+(require-package 'smart-mode-line)
+(require-package 'smart-mode-line-powerline-theme)
 (require-package 'material-theme)
 ; (require-package 'molokai-theme)
+; (require-package 'fill-column-indicator)
 (require-package 'auto-complete-clang)
 (require-package 'smex)
 (require-package 'ein)

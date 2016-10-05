@@ -58,10 +58,13 @@
       (molokai-grey-2         "#bcbcbc")
       (molokai-grey-1         "#8f8f8f")
       (molokai-grey           "#808080")
+      (molokai-grey+1         "#7e7e7e")
       (molokai-grey+2         "#403d3d")
       (molokai-grey+3         "#4c4745")
+      (molokai-grey+4         "#393939")  ;;; add by yangzongze@gmail.com
       (molokai-grey+5         "#232526")
       (molokai-bg             "#1b1d1e")
+      (molokai-bg-2           "#590a59")
       (molokai-grey+10        "#080808")
       (molokai-dark           "#000000")
       (molokai-base01         "#465457")
@@ -74,16 +77,16 @@
    ;; base
    `(default ((t (:background ,molokai-bg :foreground ,molokai-fg))))
    `(cursor ((t (:background ,molokai-fg :foreground ,molokai-bg))))
-   `(fringe ((t (:foreground ,molokai-base02 :background ,molokai-bg))))
+   `(fringe ((t (:foreground ,molokai-bg-2 :background ,molokai-grey+3))))
    `(highlight ((t (:background ,molokai-grey))))
-   `(region ((t (:background  ,molokai-grey+2))
+   `(region ((t (:background  ,molokai-bg-2))
              (t :inverse-video t)))
    `(warning ((t (:foreground ,molokai-palevioletred :weight bold))))
 
    ;; font lock
    `(font-lock-builtin-face ((t (:foreground ,molokai-chartreuse))))
-   `(font-lock-comment-face ((t (:foreground ,molokai-base01))))
-   `(font-lock-comment-delimiter-face ((t (:foreground ,molokai-base01))))
+   `(font-lock-comment-face ((t (:foreground ,molokai-grey+1))))
+   `(font-lock-comment-delimiter-face ((t (:foreground ,molokai-grey+1))))
    `(font-lock-constant-face ((t (:foreground ,molokai-purple))))
    `(font-lock-doc-string-face ((t (:foreground ,molokai-darkgoldenrod))))
    `(font-lock-function-name-face ((t (:foreground ,molokai-chartreuse))))
@@ -111,11 +114,12 @@
    `(isearch-fail ((t (:foreground ,molokai-wine :background ,molokai-darkwine))))
 
    ;; linum-mode
-   `(linum ((t (:foreground ,molokai-grey-2 :background ,molokai-grey+5))))
+   ;; changed by yangzongze@gmail.com
+   `(linum ((t (:foreground ,molokai-grey-2 :background ,molokai-grey+4))))
 
    ;; hl-line-mode
-   `(hl-line-face ((,class (:background ,molokai-grey+5)) (t :weight bold)))
-   `(hl-line ((,class (:background ,molokai-grey+5)) (t :weight bold)))
+   `(hl-line-face ((,class (:background ,molokai-grey+4)) (t :weight bold)))
+   `(hl-line ((,class (:background ,molokai-grey+4)) (t :weight bold)))
 
    ;; TODO
    ;; ido-mode

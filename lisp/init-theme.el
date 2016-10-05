@@ -4,16 +4,32 @@
 (load-theme 'molokai t)
 ; (load-theme 'monokai t)
 (setq inhibit-startup-message t)
+
+;;; line number begin
+(add-hook 'linum-before-numbering-hook
+          (lambda ()
+            (setq-local linum-format-fmt
+                        (let ((w (length (number-to-string
+                                          (count-lines (point-min) (point-max))))))
+                          (concat "%" (number-to-string (max 3 w)) "d ")))))
+(defun linum-format-func (line)
+  (concat
+   (propertize (format linum-format-fmt line) 'face 'linum)))
+;   (propertize " " 'face 'mode-line)))
+(setq linum-format 'linum-format-func)
 (global-linum-mode t)
+;;; line number end
+
 (setq default-cursor-type '(bar . 2))
 (setq line-spacing 0.1)
 (global-hl-line-mode 1)
 (column-number-mode)
-(scroll-bar-mode)
+; (scroll-bar-mode)
+
 (require 'whitespace)
-(setq-default whitespace-line-column 80
-              whitespace-style       '(face lines-tail))
-(add-hook 'prog-mode-hook #'whitespace-mode)
+(setq-default whitespace-style '(face trailing))
+(global-whitespace-mode t)
+
 ; font and size
 (set-default-font "consolas-13")
 (if (string-equal system-type "windows-nt")
@@ -21,5 +37,9 @@
       (set-fontset-font (frame-parameter nil 'font)
                         charset
                         (font-spec :family "Microsoft Yahei"))))
+
+(setq sml/no-confirm-load-theme t)
+(setq sml/theme 'powerline)
+(sml/setup)
 
 (provide 'init-theme)

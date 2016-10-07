@@ -1,12 +1,13 @@
 ;; (setq elpy-modules nil)
+(require-package 'ein)
+(require-package 'elpy)
 (elpy-enable)
 (elpy-use-ipython)
 
 ;(when (executable-find "ipython")
 ;  (setq python-shell-interpreter "ipython")
 ;  (setq python-shell-interpreter-args "-i -wthread"))
-;(setq python-shell-interpreter-args "-i d:/Python27/Scripts/ipython.exe --pylab=inline")
-(setq python-shell-interpreter-args "-i")
+; (setq python-shell-interpreter-args "-i --pylab=inline")
 (setq python-shell-completion-native-enable nil)
 (setq python-shell-prompt-detect-failure-warning nil)
 ;; (add-hook 'python-mode-hook 'company-mode)
@@ -14,5 +15,6 @@
 ;; (add-hook 'python-mode-hook 'jedi:setup)
 ;; (setq jedi:complete-on-dot t)
 ;; (setq elpy-rpc-backend "jedi")
-
+(setq elpy-syntax-check-command "")
+(setq flymake-gui-warnings-enabled nil)
 (provide 'init-python)

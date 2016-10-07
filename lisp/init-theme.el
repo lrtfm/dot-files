@@ -1,5 +1,11 @@
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(require-package 'better-defaults)
+; (require-package 'powerline)
+(require-package 'smart-mode-line)
+(require-package 'smart-mode-line-powerline-theme)
+(require-package 'material-theme)
+; (require-package 'molokai-theme)
 
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 ; (load-theme 'material t)
 (load-theme 'molokai t)
 ; (load-theme 'monokai t)
@@ -11,11 +17,12 @@
             (setq-local linum-format-fmt
                         (let ((w (length (number-to-string
                                           (count-lines (point-min) (point-max))))))
-                          (concat "%" (number-to-string (max 3 w)) "d ")))))
+                          (concat "%" (number-to-string (+ 1 w)) "d ")))))
+
 (defun linum-format-func (line)
   (concat
    (propertize (format linum-format-fmt line) 'face 'linum)))
-;   (propertize " " 'face 'mode-line)))
+
 (setq linum-format 'linum-format-func)
 (global-linum-mode t)
 ;;; line number end
@@ -38,8 +45,8 @@
                         charset
                         (font-spec :family "Microsoft Yahei"))))
 
-(setq sml/no-confirm-load-theme t)
-(setq sml/theme 'powerline)
-(sml/setup)
+; (setq sml/no-confirm-load-theme t)
+; (setq sml/theme 'powerline)
+; (sml/setup)
 
 (provide 'init-theme)

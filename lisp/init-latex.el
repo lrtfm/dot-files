@@ -1,8 +1,9 @@
 ;; init-latex.el
 
-;; (require-package 'auctex)
+(require-package 'auctex)
 
 (require 'cl)
+(setq-default TeX-engine 'xetex)
 (setq TeX-parse-self t)
 (setq TeX-auto-save t)
 
@@ -12,11 +13,6 @@
 (setq font-latex-fontify-sectioning 'color)
 (setq font-latex-script-display (quote (nil)))
 
-(custom-set-faces
- '(font-latex-subscript-face ((t nil)))
- '(font-latex-superscript-face ((t nil)))
- )
-
 (font-lock-add-keywords 'latex-mode
                         '(("&" . 'font-lock-keyword-face)))
 (font-lock-add-keywords 'latex-mode
@@ -25,22 +21,31 @@
 ; (require 'init-latex-keywords)
 
 ;; forward and inverse search
-(setq mode-io-correlate-str
-      (concat " -forward-search %b %n -inverse-search "
-              "\"d:/emacs25.1/bin/emacsclientw.exe --no-wait "
-              "--alternate-editor=d:/emacs25.1/bin/runemacs.exe "
-              "-n +%%l %%f\""))
 (setq-default TeX-comman-extra-options "-shell-escape")
 (setq-default TeX-source-correlate-mode t)
 (setq-default TeX-source-correlate-start-server t)
-(setq TeX-view-program-list
-      `(("SumatraPDF" ("\"D:/Program Files/SumatraPDF/SumatraPDF.exe\" -reuse-instance"
-                       (mode-io-correlate ,mode-io-correlate-str) " %o"))))
 
-(eval-after-load 'tex
-  '(progn
-     (assq-delete-all 'output-pdf TeX-view-program-selection)
-     (add-to-list 'TeX-view-program-selection '(output-pdf "SumatraPDF"))))
+(defun assemble-view-program-sumatra (sumatra-path emacs-path)
+  (message sumatra-path)
+  (message emacs-path)
+  `("SumatraPDF"
+        (,(concat "\"" sumatra-path  "/SumatraPDF.exe" "\" -reuse-instance")
+         (mode-io-correlate
+          ,(concat " -forward-search %b %n -inverse-search \""
+                  "\\\"" emacs-path "/bin/emacsclientw.exe" "\\\""
+                  " --no-wait --alternate-editor="
+                  "\\\"" emacs-path "/bin/runemacs.exe" "\\\""
+                  " -n +%%l %%f\""))
+         " %o")))
+
+(defun TeX-view-program-list-add (view-program)
+  (add-to-list 'TeX-view-program-list view-program))
+
+(defun TeX-view-select-sumatra ()
+  (eval-after-load 'tex
+    '(progn
+       (assq-delete-all 'output-pdf TeX-view-program-selection)
+       (add-to-list 'TeX-view-program-selection '(output-pdf "SumatraPDF")))))
 
 ;; fix error with 'png
 (setq preview-image-type 'pnm)
@@ -48,7 +53,6 @@
 ;; enable reftex
 (setq reftex-plug-into-auctex t)
 
-;;; 
 ;;; http://www.emacswiki.org/emacs/TN
 (require 'tex-buf)
 (defun TeX-command-default (name)
@@ -67,6 +71,7 @@
         ;; fixbugs: change .tex file will not re-run bibtex
         ;; add by yangzongze@gmail.com
         ((and (memq major-mode '(doctex-mode latex-mode))
+              LaTeX-bibliography-list    ;; avoid run bibtex if this is empty
               (TeX-check-files (concat name ".bbl")
                                (append (mapcar 'car
                                                (LaTeX-bibliography-list))
@@ -131,5 +136,6 @@ If there is still something left do do start the next latex-command."
           '(lambda ()
              (define-key LaTeX-mode-map (kbd "C-c C-a") 'TeX-texify)))
 
-(add-hook 'TeX-mode-hook 'LaTeX-math-mode)
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+
 (provide 'init-latex)

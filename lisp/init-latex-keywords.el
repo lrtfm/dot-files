@@ -22,7 +22,6 @@
   (dolist (element greek-alphabet h-list)
     (setq h-list
          (cons `(,(concat "\\\\" element) . ',face-name) h-list))))
- 
 
 (setq greek-highlight-list (create-highlight-list 'font-lock-keyword-face))
 ; (create-highlight-list 'font-lock-keyword-face greek-highlight-list)
@@ -37,7 +36,5 @@
 ;                             ("beta" . ',face-name)
 ;                             ("gamma" . ',face-name)
 ;                             )))
-; 
-
 
 (provide 'init-latex-keywords)

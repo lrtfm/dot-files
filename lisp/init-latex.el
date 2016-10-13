@@ -7,7 +7,7 @@
 (setq TeX-parse-self t)
 (setq TeX-auto-save t)
 
-(setq LaTeX-electric-left-right-brace 1)
+(setq LaTeX-electric-left-right-brace nil)
 (setq TeX-electric-sub-and-superscript 1)
 
 (setq font-latex-fontify-sectioning 'color)

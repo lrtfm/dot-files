@@ -6,7 +6,7 @@
 
 ; (ac-config-default)
 ; (ac-set-trigger-key "TAB")
-(setq ac-auto-start t)
+(setq ac-auto-start nil)
 (setq ac-quick-help-delay 0.5)
 
 (setq-default ac-sources '(ac-source-abbrev

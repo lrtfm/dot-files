@@ -16,7 +16,7 @@
           (lambda ()
             (setq-local linum-format-fmt
                         (let ((w (length (number-to-string
-                                          (count-lines (point-min) (point-max))))))
+                                          (+ 10 (count-lines (point-min) (point-max)))))))
                           (concat "%" (number-to-string (+ 1 w)) "d ")))))
 
 (defun linum-format-func (line)

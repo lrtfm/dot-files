@@ -42,4 +42,6 @@
 ;; fot lisp
 (setq racket-racket-program "d:/Program Files/Racket/Racket.exe")
 
+(setq org-default-notes-file "c:/users/yangzongze/desktop/gtd/notes.org")
+
 (provide 'init-windows-local)

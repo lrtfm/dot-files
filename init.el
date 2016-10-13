@@ -12,7 +12,7 @@
 (require 'init-lisp)
 (require 'init-latex)
 (require 'init-python)
-
+(require 'init-matlab)
 (require 'init-org-mode)
 
 (require 'init-windows-local)
@@ -37,3 +37,11 @@
  '(rainbow-delimiters-depth-7-face ((t (:foreground "royal blue"))))
  '(rainbow-delimiters-depth-8-face ((t (:foreground "dark magenta"))))
  '(rainbow-delimiters-depth-9-face ((t (:foreground "magenta")))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-agenda-files
+   (quote
+    ("~/Desktop/gtd/main-work.org" "~/Desktop/gtd/learn-new-skills.org" "~/Desktop/gtd/org-notes.org"))))

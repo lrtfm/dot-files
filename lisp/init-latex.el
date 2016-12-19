@@ -13,12 +13,7 @@
 (setq font-latex-fontify-sectioning 'color)
 (setq font-latex-script-display (quote (nil)))
 
-(font-lock-add-keywords 'latex-mode
-                        '(("&" . 'font-lock-keyword-face)))
-(font-lock-add-keywords 'latex-mode
-                        '(("\\\\\\\\" . 'font-lock-keyword-face)))
-
-; (require 'init-latex-keywords)
+(require 'init-latex-keywords)
 
 ;; forward and inverse search
 (setq-default TeX-comman-extra-options "-shell-escape")

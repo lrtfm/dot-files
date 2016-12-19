@@ -1,40 +1,49 @@
+;              lower     upper
+(setq greek '("alpha"   ; A
+              "beta"    ; B
+              "gamma"   "Gamma"
+              "delta"   "Delta"
+              "epsilon" ; E
+              "zeta"    ; Z
+              "eta"     ; E
+              "theta"   "Theta"
+              "iota"    ; I
+              "kappa"   ; K
+              "lambda"  "Lambda"
+              "mu"      ; M
+              "nu"      ; N
+              "omicron" ; (
+              "pi"      "Pi"
+              "rho"     ; R
+              "sigma"   "Sigma"
+              "tau"     ; T
+              "upsilon" "Upsilon"
+              "phi"     "Phi"
+              "chi"     ; X
+              "psi"     "Psi"
+              "omega"   "Omega"))
+(setq others '("frac"
+               "in" "cap" "forall"
+               "big" "Big"
+               "left" "right"
+               "int" "limits"
+               "cdots" "ldots"
+               "prescript"
+               "matchcal"
+               "infty"
+               "rightarrow"
+               "leftarrow"
+               "partial"))
 
-(setq greek-alphabet '("alpha" "beta" "gamma" "Alpha" "Beta" "Gamma"))
-;
-;(defun highlight-greek-a (face-name a-list)
-;  (mapc #'(lambda (keyword)
-;            (let ((key-reg (concat "\\\\" keyword)))
-;              ; (insert key-reg)
-;              ; (insert key-reg)
-;              (font-lock-add-keywords 'latex-mode
-;                                      `((,key-reg .
-;                                        ',face-name)))))
-;        a-list))
-;
-;(highlight-greek-a 'font-lock-keyword-face greek-alphabet)
-;
-(font-lock-add-keywords 'latex-mode
-                        '(("\\\\\[a-z@\]+" . 'font-lock-keyword-face)))
+(setq font-latex-match-function-keywords '())
+(dolist (elt greek font-latex-match-function-keywords)
+  (setq font-latex-match-function-keywords
+        (cons `(,elt "")
+              font-latex-match-function-keywords)))
 
-; (setq greek-keywords-with-face '())
-(defun create-highlight-list (face-name)
-  (setq h-list '())
-  (dolist (element greek-alphabet h-list)
-    (setq h-list
-         (cons `(,(concat "\\\\" element) . ',face-name) h-list))))
-
-(setq greek-highlight-list (create-highlight-list 'font-lock-keyword-face))
-; (create-highlight-list 'font-lock-keyword-face greek-highlight-list)
-(font-lock-add-keywords 'latex-mode greek-highlight-list)
-
-; (font-lock-add-keywords 'latex-mode
-;                         `((,(concat "\\(\\\\" (regexp-opt greek-alphabet) "\\)")
-;                            1 'font-lock-keyword-face)))
-; (defun highlight-greek (face-name)
-;   (font-lock-add-keywords 'latex-mode
-;                           `(("alpha" . ',face-name)
-;                             ("beta" . ',face-name)
-;                             ("gamma" . ',face-name)
-;                             )))
+(dolist (elt others font-latex-match-function-keywords)
+  (setq font-latex-match-function-keywords
+        (cons `(,elt "")
+              font-latex-match-function-keywords)))
 
 (provide 'init-latex-keywords)

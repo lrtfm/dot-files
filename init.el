@@ -14,7 +14,7 @@
 (require 'init-python)
 (require 'init-matlab)
 (require 'init-org-mode)
-
+(require 'init-web-mode)
 (require 'init-windows-local)
 
 (unless (and (fboundp 'server-running-p)
@@ -26,8 +26,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(font-latex-subscript-face ((t nil)))
- '(font-latex-superscript-face ((t nil)))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "red"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "goldenrod"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "gold"))))

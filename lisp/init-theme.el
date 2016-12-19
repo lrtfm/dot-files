@@ -12,19 +12,19 @@
 (setq inhibit-startup-message t)
 
 ;;; line number begin
-(add-hook 'linum-before-numbering-hook
-          (lambda ()
-            (setq-local linum-format-fmt
-                        (let ((w (length (number-to-string
-                                          (+ 10 (count-lines (point-min) (point-max)))))))
-                          (concat "%" (number-to-string (+ 1 w)) "d ")))))
+;; (add-hook 'linum-before-numbering-hook
+;;           (lambda ()
+;;             (setq-local linum-format-fmt
+;;                         (let ((w (length (number-to-string
+;;                                           (+ 10 (count-lines (point-min) (point-max)))))))
+;;                           (concat "%" (number-to-string (+ 1 w)) "d ")))))
 
-(defun linum-format-func (line)
-  (concat
-   (propertize (format linum-format-fmt line) 'face 'linum)))
+;; (defun linum-format-func (line)
+;;   (concat
+;;    (propertize (format linum-format-fmt line) 'face 'linum)))
 
-(setq linum-format 'linum-format-func)
-(global-linum-mode t)
+;; (setq linum-format 'linum-format-func)
+;; (global-linum-mode t)
 ;;; line number end
 
 (setq default-cursor-type '(bar . 2))

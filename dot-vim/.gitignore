@@ -1,0 +1,7 @@
+/*
+!/.gitignore
+!/.vimrc
+!/.vim
+/.vim/*
+!/.vim/ftplugin
+!/.vim/snippets

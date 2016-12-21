@@ -1,0 +1,3 @@
+[submodule "dot-emacs.d/xyz-packages/ecb"]
+	path = dot-emacs.d/xyz-packages/ecb
+	url = git@github.com:ecb-home/ecb.git

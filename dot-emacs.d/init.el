@@ -1,5 +1,10 @@
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+;; (package-initialize)
+
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/xyz-packages/ecb"))
 
 (require 'package)
 (require 'init-elpa)
@@ -9,7 +14,6 @@
 
 ;; for prog language
 (require 'init-prog-common)
-(require 'ecb)
 (require 'init-c++)
 (require 'init-lisp)
 (require 'init-latex)
@@ -55,8 +59,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ecb-options-version "2.50")
- '(ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2))
  '(font-latex-fontify-sectioning 1.0)
  '(font-latex-script-display (quote (nil)))
  '(font-latex-user-keyword-classes

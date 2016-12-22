@@ -10,10 +10,7 @@
 (setq LaTeX-electric-left-right-brace nil)
 (setq TeX-electric-sub-and-superscript 1)
 
-(setq font-latex-fontify-sectioning 'color)
-(setq font-latex-script-display (quote (nil)))
-
-(require 'init-latex-keywords)
+;; (require 'init-latex-keywords)
 
 ;; forward and inverse search
 (setq-default TeX-comman-extra-options "-shell-escape")

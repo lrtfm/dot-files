@@ -12,6 +12,8 @@
 (require 'init-smex)
 (require 'init-auto-complete)
 
+(require 'init-utils)
+
 ;; for prog language
 (require 'init-prog-common)
 (require 'init-c++)
@@ -20,8 +22,13 @@
 (require 'init-python)
 (require 'init-matlab)
 (require 'init-org-mode)
+
 ;; (require 'init-web-mode)
-(require 'init-windows-local)
+
+(if (eq system-type 'windows-nt)
+    (progn
+      (require 'init-sumatra)
+      (require 'init-windows-custom)))
 
 (unless (and (fboundp 'server-running-p)
              (not (server-running-p)))
@@ -73,7 +80,4 @@
       noarg)
      ("xyz-math-commands"
       (("frac" "{{"))
-      nil command))))
- '(org-agenda-files
-   (quote
-    ("~/Desktop/gtd/main-work.org" "~/Desktop/gtd/learn-new-skills.org" "~/Desktop/gtd/org-notes.org"))))
+      nil command)))))

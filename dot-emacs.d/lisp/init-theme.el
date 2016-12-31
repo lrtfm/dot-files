@@ -1,5 +1,5 @@
 (require-package 'better-defaults)
-; (require-package 'powerline)
+(require-package 'powerline)
 (require-package 'smart-mode-line)
 (require-package 'smart-mode-line-powerline-theme)
 (require-package 'material-theme)

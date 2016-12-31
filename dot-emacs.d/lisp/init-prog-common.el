@@ -1,4 +1,5 @@
 (require-package 'ecb)
+(require-package 'ggtags)
 (require-package 'rainbow-mode)
 (require-package 'rainbow-delimiters)
 (require 'rainbow-mode)

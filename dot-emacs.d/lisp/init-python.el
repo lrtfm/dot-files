@@ -2,7 +2,8 @@
 (require-package 'ein)
 (require-package 'elpy)
 (elpy-enable)
-(elpy-use-ipython)
+(when (executable-find "ipython")
+  (elpy-use-ipython))
 
 ;(when (executable-find "ipython")
 ;  (setq python-shell-interpreter "ipython")

@@ -1,9 +1,10 @@
+(require 'org)
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
 
-(require 'ox-latex)
+(if (version< org-version "8.0") nil (require 'ox-latex))
 (setq org-latex-default-packages-alist
       `(("" "xeCJK" t)
         ("T1" "fontenc" t)

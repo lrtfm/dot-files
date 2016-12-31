@@ -1,6 +1,9 @@
 ;; init-elpa.el
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+(setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+; (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+; (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 ; (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
 (package-initialize)
 

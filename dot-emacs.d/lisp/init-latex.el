@@ -17,28 +17,6 @@
 (setq-default TeX-source-correlate-mode t)
 (setq-default TeX-source-correlate-start-server t)
 
-(defun assemble-view-program-sumatra (sumatra-path emacs-path)
-  (message sumatra-path)
-  (message emacs-path)
-  `("SumatraPDF"
-        (,(concat "\"" sumatra-path  "/SumatraPDF.exe" "\" -reuse-instance")
-         (mode-io-correlate
-          ,(concat " -forward-search %b %n -inverse-search \""
-                  "\\\"" emacs-path "/bin/emacsclientw.exe" "\\\""
-                  " --no-wait --alternate-editor="
-                  "\\\"" emacs-path "/bin/runemacs.exe" "\\\""
-                  " -n +%%l %%f\""))
-         " %o")))
-
-(defun TeX-view-program-list-add (view-program)
-  (add-to-list 'TeX-view-program-list view-program))
-
-(defun TeX-view-select-sumatra ()
-  (eval-after-load 'tex
-    '(progn
-       (assq-delete-all 'output-pdf TeX-view-program-selection)
-       (add-to-list 'TeX-view-program-selection '(output-pdf "SumatraPDF")))))
-
 ;; fix error with 'png
 (setq preview-image-type 'pnm)
 

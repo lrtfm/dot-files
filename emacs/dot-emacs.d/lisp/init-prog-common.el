@@ -9,4 +9,6 @@
 (add-hook 'prog-mode-hook #'semantic-mode)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
+(global-set-key (kbd "RET") 'newline-and-indent)
+
 (provide 'init-prog-common)

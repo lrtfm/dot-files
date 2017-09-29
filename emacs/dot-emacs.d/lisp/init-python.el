@@ -1,5 +1,7 @@
 ;; (setq elpy-modules nil)
-(require-package 'ein)
+(if (version< emacs-version "24.4")
+    (message "Your Emacs is old!!!")
+  (require-package 'ein))
 (require-package 'elpy)
 (elpy-enable)
 (when (executable-find "ipython")

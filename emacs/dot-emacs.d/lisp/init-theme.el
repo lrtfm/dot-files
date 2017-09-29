@@ -39,11 +39,6 @@
 
 ; font and size
 (set-default-font "consolas-13")
-(if (string-equal system-type "windows-nt")
-    (dolist (charset '(kana han symbol cjk-misc bopomofo))
-      (set-fontset-font (frame-parameter nil 'font)
-                        charset
-                        (font-spec :family "Microsoft Yahei"))))
 
 ; (setq sml/no-confirm-load-theme t)
 ; (setq sml/theme 'powerline)

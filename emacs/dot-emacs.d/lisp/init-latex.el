@@ -1,8 +1,14 @@
 ;; init-latex.el
 
 (require-package 'auctex)
-
+(require-package 'cdlatex)
 (require 'cl)
+
+(add-hook 'LaTeX-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'latex-mode-hook 'rainbow-delimiters-mode)
+;; (add-hook 'LaTeX-mode-hook 'turn-on-cdlatex)   ; with AUCTeX LaTeX mode
+;; (add-hook 'latex-mode-hook 'turn-on-cdlatex)   ; with Emacs latex mode
+
 (setq-default TeX-engine 'xetex)
 (setq TeX-parse-self t)
 (setq TeX-auto-save t)

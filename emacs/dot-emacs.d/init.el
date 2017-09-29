@@ -11,8 +11,8 @@
 (require 'init-theme)
 (require 'init-smex)
 (require 'init-auto-complete)
-
 (require 'init-utils)
+;; (require 'init-evil)
 
 ;; for prog language
 (require 'init-prog-common)
@@ -22,24 +22,19 @@
 (require 'init-python)
 (require 'init-matlab)
 (require 'init-org-mode)
-
-;; (require 'init-web-mode)
-
-(if (eq system-type 'windows-nt)
-    (progn
-      (require 'init-sumatra)
-      (require 'init-windows-custom)))
-
-(unless (and (fboundp 'server-running-p)
-             (not (server-running-p)))
-  (server-start))
+;; (require 'init-perl)
+(require 'init-haskell)
+(require 'init-web-mode)
+(require 'init-custom)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ac-yasnippet-selection-face ((t (:inherit ac-selection-face :background "blue"))))
  '(font-latex-math-face ((t (:foreground "#66d9ef" :slant normal))))
+ '(font-latex-script-char-face ((t (:foreground "burlywood"))))
  '(font-latex-sectioning-5-face ((t (:inherit default :foreground "yellow"))))
  '(font-latex-sedate-face ((t (:foreground "burlywood3"))))
  '(font-latex-slide-title-face ((t (:inherit default :foreground "light sky blue" :height 1.0))))
@@ -66,18 +61,35 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default bold shadow italic underline bold bold-italic bold])
+ '(ansi-color-names-vector
+   (vector "#c5c8c6" "#cc6666" "#b5bd68" "#f0c674" "#81a2be" "#b294bb" "#8abeb7" "#373b41"))
+ '(fci-rule-color "#373b41")
  '(font-latex-fontify-sectioning 1.0)
  '(font-latex-script-display (quote (nil)))
- '(font-latex-user-keyword-classes
+ '(org-babel-load-languages (quote ((emacs-lisp . t) (python . t) (sh . t) (C . t))))
+ '(safe-local-variable-values (quote ((org-html-postamble))))
+ '(vc-annotate-background nil)
+ '(vc-annotate-color-map
    (quote
-    (("xyz-math-greek"
-      ("alpha" "beta" "gamma" "Gamma" "delta" "Delta" "epsilon" "varepsilon" "zeta" "eta" "theta" "Theta" "iota" "kappa" "lambda" "Lambda" "mu" "nu" "omicron" "pi" "Pi" "rho" "sigma" "Sigma" "tau" "upsilon" "Upsilon" "phi" "varphi" "Phi" "chi" "psi" "Psi" "omega" "Omega")
-      (:foreground "#f92672")
-      noarg)
-     ("xyz-math-symbols"
-      ("int" "limits" "times" "textstyle" "partial" "exp" "cos" "sin" "tan" "cot" "forall" "sum" "le" "ge" "eq" "in" "notin" "cap" "dots" "cdots" "ldots" "big" "Big" "left" "right")
-      (:foreground "#f92672")
-      noarg)
-     ("xyz-math-commands"
-      (("frac" "{{"))
-      nil command)))))
+    ((20 . "#cc6666")
+     (40 . "#de935f")
+     (60 . "#f0c674")
+     (80 . "#b5bd68")
+     (100 . "#8abeb7")
+     (120 . "#81a2be")
+     (140 . "#b294bb")
+     (160 . "#cc6666")
+     (180 . "#de935f")
+     (200 . "#f0c674")
+     (220 . "#b5bd68")
+     (240 . "#8abeb7")
+     (260 . "#81a2be")
+     (280 . "#b294bb")
+     (300 . "#cc6666")
+     (320 . "#de935f")
+     (340 . "#f0c674")
+     (360 . "#b5bd68"))))
+ '(vc-annotate-very-old-color nil)
+ '(yas-global-mode t))

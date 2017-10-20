@@ -22,6 +22,7 @@ Plugin 'honza/vim-snippets'
 " Plugin 'kien/rainbow_parentheses.vim'
 " Plugin 'tpope/vim-surround'
 " Plugin 'bling/vim-airline'
+Plugin "vim-latex/vim-latex"
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'kien/ctrlp.vim'
 " Plugin 'altercation/vim-colors-solarized'
@@ -30,7 +31,7 @@ Plugin 'The-NERD-tree'
 " Plugin 'taglist.vim'
 Plugin 'vim-niji'
 Plugin 'a.vim'
-Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
+" Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
 Plugin 'molokai'
 " Plugin 'vim-orgmode'
 " Plugin 'vim-speeddating'
@@ -139,7 +140,9 @@ let g:rbpt_colorpairs = [
 " au Syntax * RainbowParenthesesLoadBraces
 
 " for tex
-set shellslash
+if !has('win32')
+  set shellslash
+endif
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
 let g:tex_isk='48-57,a-z,A-Z,192-255,:'

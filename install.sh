@@ -6,7 +6,7 @@ script_name="install.sh"
 
 # get base path of the script
 tmp_name=$(basename dumy/$0)
-if [ $tmp_name = $script_name ]
+if [ "$tmp_name" = "$script_name" ]
 then
     base_path=$(cd `dirname $0`;pwd)
 else
@@ -49,15 +49,15 @@ done
 
 # shift $(($OPTIND-1))
 
-dest_dir=$HOME
+dest_dir="$HOME"
 suffix=.bak-`date +%Y%m%d%H%M%S`
 backup()
 {
-    name=$1
-    suffix=$2
-    if [ -f $name -o -d $name ]
+    name="$1"
+    suffix="$2"
+    if [ -f "$name" -o -d "$name" ]
     then
-	mv $name $name$suffix
+	mv "$name" "$name$suffix"
     fi
 }
 
@@ -67,19 +67,19 @@ install_vim ()
     vundle_url=https://github.com/VundleVim/Vundle.vim.git
     
     echo "Install vim dot files begin"
-    backup $dest_dir/.vimrc $suffix
+    backup "$dest_dir/.vimrc" "$suffix"
     if [ s$ycm = s1 ]
     then
-        sed 's/^"[\t ]*\([^>"]*"<<<<ycm.*\)/\1/' $base_path/vim/dot-vimrc > \
-            $dest_dir/.vimrc
+        sed 's/^"[\t ]*\([^>"]*"<<<<ycm.*\)/\1/' "$base_path/vim/dot-vimrc" > \
+            "$dest_dir/.vimrc"
     else    
-	    cp $base_path/vim/dot-vimrc $dest_dir/.vimrc
+	    cp "$base_path/vim/dot-vimrc" "$dest_dir/.vimrc"
     fi
     
-    backup $dest_dir/.vim $suffix
-    cp -T -r $base_path/vim/dot-vim $dest_dir/.vim
+    backup "$dest_dir/.vim" "$suffix"
+    cp -T -r "$base_path/vim/dot-vim" "$dest_dir/.vim"
     
-    git clone $vundle_url $dest_dir/.vim/bundle/Vundle.vim
+    git clone "$vundle_url" "$dest_dir/.vim/bundle/Vundle.vim"
     vim +PluginInstall +qall
     echo "Install vim dot files end"
 }
@@ -89,8 +89,8 @@ install_emacs()
     echo "Install emacs dot files begin"
     echo "Here We Just Copy Files to DEST."
     
-    backup $dest_dir/.emacs.d $suffix
-    cp -T -r $base_path/emacs/dot-emacs.d $dest_dir/.emacs.d
+    backup "$dest_dir/.emacs.d" "$suffix"
+    cp -T -r "$base_path/emacs/dot-emacs.d" "$dest_dir/.emacs.d"
     echo "Install emacs dot files end"
 }
 

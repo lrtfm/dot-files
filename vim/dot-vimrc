@@ -22,7 +22,7 @@ Plugin 'honza/vim-snippets'
 " Plugin 'kien/rainbow_parentheses.vim'
 " Plugin 'tpope/vim-surround'
 " Plugin 'bling/vim-airline'
-Plugin "vim-latex/vim-latex"
+Plugin 'vim-latex/vim-latex'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'kien/ctrlp.vim'
 " Plugin 'altercation/vim-colors-solarized'

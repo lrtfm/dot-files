@@ -77,7 +77,7 @@ install_vim ()
     fi
     
     backup "$dest_dir/.vim" "$suffix"
-    cp -T -r "$base_path/vim/dot-vim" "$dest_dir/.vim"
+    cp -R "$base_path/vim/dot-vim" "$dest_dir/.vim"
     
     git clone "$vundle_url" "$dest_dir/.vim/bundle/Vundle.vim"
     vim +PluginInstall +qall
@@ -90,7 +90,7 @@ install_emacs()
     echo "Here We Just Copy Files to DEST."
     
     backup "$dest_dir/.emacs.d" "$suffix"
-    cp -T -r "$base_path/emacs/dot-emacs.d" "$dest_dir/.emacs.d"
+    cp -R "$base_path/emacs/dot-emacs.d" "$dest_dir/.emacs.d"
     echo "Install emacs dot files end"
 }
 

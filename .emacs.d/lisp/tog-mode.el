@@ -27,9 +27,9 @@
 This mode provides a keybinding for toggling between a list of
 major modes. For example, latex-mode and org-mode when
 writing reveal.js presentations."
-  nil                                   ; Not on by default
-  " tog"                                ; modeline indicator
-  '(([?\C-c ?#] . tog-toggle-modes))    ; keymap
+  :init-value nil                                   ; Not on by default
+  :lighter " tog"                                ; modeline indicator
+  :keymap '(([?\C-c ?#] . tog-toggle-modes))    ; keymap
   :group 'tog)
 
 (defun tog-setup (modes)

@@ -38,7 +38,7 @@
 (global-whitespace-mode t)
 
 ; font and size
-(set-default-font "consolas-13")
+; (set-default-font "consolas-13")
 
 ; (setq sml/no-confirm-load-theme t)
 ; (setq sml/theme 'powerline)

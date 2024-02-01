@@ -5,7 +5,8 @@
 (require-package 'elpy)
 (elpy-enable)
 (when (executable-find "ipython")
-  (elpy-use-ipython))
+  (setq python-shell-interpreter "ipython"
+	python-shell-interpreter-args "-i --simple-prompt"))
 
 ;(when (executable-find "ipython")
 ;  (setq python-shell-interpreter "ipython")

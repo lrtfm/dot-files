@@ -1,6 +1,13 @@
 ;; TODO
 ;; put thsese in init-local.el
 
+;; system encoding
+(prefer-coding-system 'utf-8-unix)
+(set-language-environment "English")
+(setq system-time-locale "C")
+
+;; for tex view
+(require 'init-sumatra)
 (setq Tex-sumatra-path "c:/Program Files (x86)/SumatraPDF/")
 (setq Tex-emacs-path "d:/Program Files/emacs-24.5/bin/")
 (add-hook 'LaTeX-mode-hook 'TeX-view-select-sumatra)
@@ -17,5 +24,9 @@
 (setq racket-racket-program "d:/Program Files/Racket/Racket.exe")
 
 (setq org-default-notes-file "c:/users/yangzongze/desktop/gtd/notes.org")
+
+(unless (and (fboundp 'server-running-p)
+	     (not (server-running-p)))
+  (server-start))
 
 (provide 'init-windows-custom)

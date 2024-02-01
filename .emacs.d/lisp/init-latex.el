@@ -2,7 +2,7 @@
 
 (require-package 'auctex)
 (require-package 'cdlatex)
-(require 'cl)
+(require 'cl-lib)
 
 (add-hook 'LaTeX-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'latex-mode-hook 'rainbow-delimiters-mode)
@@ -30,7 +30,7 @@
 (setq reftex-plug-into-auctex t)
 
 ;;; http://www.emacswiki.org/emacs/TN
-(require 'tex-buf)
+(require 'tex)
 (defun TeX-command-default (name)
   "Next TeX command to use. Most of the code is stolen from `TeX-command-query'."
   (cond ((if (string-equal name TeX-region)
@@ -109,7 +109,7 @@ If there is still something left do do start the next latex-command."
              (set-process-sentinel proc 'TeX-texify-sentinel))))))
 
 (add-hook 'LaTeX-mode-hook
-          '(lambda ()
+          #'(lambda ()
              (define-key LaTeX-mode-map (kbd "C-c C-a") 'TeX-texify)))
 
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)

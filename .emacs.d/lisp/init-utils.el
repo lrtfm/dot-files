@@ -15,7 +15,7 @@
 
 (global-set-key (kbd "<mouse-3>") 'x-copy-yank)
 (add-hook 'term-setup-hook
-          '(lambda ()
+          #'(lambda ()
              (define-key function-key-map "\e[1;9A" [M-up])
              (define-key function-key-map "\e[1;9B" [M-down])
              (define-key function-key-map "\e[1;9C" [M-right])

@@ -1,4 +1,6 @@
 (require-package 'evil)
 (require 'evil)
 
-(evil-mode)
+(evil-mode 1)
+
+(provide 'init-evil)
